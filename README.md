@@ -42,23 +42,26 @@ The **Git Repository Offline Generator** is a shell script (`generate_setup.sh`)
 
 ## Usage
 
-Run setup_project.sh:bash
+1. Run setup_project.sh:bash
 
 ./setup_project.sh <git-repo-url>
 
-Example:bash
+## Example:bash
 
 ./setup_project.sh https://github.com/victordeman/Reco-AI-Agent
 
-The script performs the following:Checks disk space, permissions, and required tools (git, gzip).
-Clones the repository temporarily to git-shell-script-generator_project/temp_<repo_name>.
-Detects the programming language.
-Extracts the first 10 lines of README.md.
-Generates a compressed offline script (offline_<repo_name>.sh.gz) and a wrapper script (offline_<repo_name>.sh).
-Validates the recreated repository against the original using diff -r.
-Deletes the temporary cloned repository.
+- **The script performs the following:
+  - `Checks disk space, permissions, and required tools (git, gzip).
+  - `Clones the repository temporarily to git-shell-script-generator_project/temp_<repo_name>.
+  - `Detects the programming language.
+  - `Extracts the first 10 lines of README.md.
+  - `Generates a compressed offline script (offline_<repo_name>.sh.gz) and a wrapper script (offline_<repo_name>.sh).
+  - `Validates the recreated repository against the original using diff -r.
+  - `Deletes the temporary cloned repository.
 
-Output files are placed in the git-shell-script-generator_project directory.Run the Offline Script:
+Output files are placed in the git-shell-script-generator_project directory.
+
+Run the Offline Script:
 After running setup_project.sh, a compressed script (offline_<repo_name>.sh.gz) and a wrapper script (offline_<repo_name>.sh) are created in git-shell-script-generator_project. To recreate the repository offline:bash
 
 cd git-shell-script-generator_project
