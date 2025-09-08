@@ -1,4 +1,4 @@
-# Git Repository Offline Generator
+# Git Repository Offline Script Generator
 
 The **Git Repository Offline Generator** is a shell script (`generate_setup.sh`) that creates a `setup_project.sh` script. The generated script processes a Git repository by analyzing its structure and content, detecting its programming language, extracting a description from its README, generating a compressed offline script to recreate the repository without internet access, validating the recreated content, and cleaning up temporary files. It is designed to replicate a repository’s full structure and content (including text and binary files) offline, with robust error handling and compression for efficiency.
 
