@@ -66,7 +66,7 @@ The **Git Repository Offline Generator** is a shell script (`generate_setup.sh`)
 ## How It Works
 
 1. Input Validation:
-   setup_project.sh expects a single argument: a Git repository URL
+   - setup_project.sh expects a single argument: a Git repository URL
    (e.g., https://github.com/victordeman/Reco-AI-Agent).
    The repository name is extracted from the URL (e.g., Reco-AI-Agent).
 
