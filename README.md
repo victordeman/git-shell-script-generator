@@ -105,5 +105,5 @@ The **Git Repository Offline Generator** is a shell script (`generate_setup.sh`)
   - Reports success or displays differences if validation fails.
 
 9. Cleanup:
-  - Deletes the temporary cloned repository (temp_<repo_name>) to save disk space.
+    - Deletes the temporary cloned repository (temp_<repo_name>) to save disk space.
 
