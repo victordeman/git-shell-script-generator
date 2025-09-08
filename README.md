@@ -50,7 +50,7 @@ The **Git Repository Offline Generator** is a shell script (`generate_setup.sh`)
 
 ./setup_project.sh https://github.com/victordeman/Reco-AI-Agent
 
-- **The script performs the following:
+- The script performs the following:
   - Checks disk space, permissions, and required tools (git, gzip).
   - Clones the repository temporarily to git-shell-script-generator_project/temp_<repo_name>.
   - Detects the programming language.
