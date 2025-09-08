@@ -63,46 +63,40 @@ The **Git Repository Offline Generator** is a shell script (`generate_setup.sh`)
 - **Run the Offline Script:
   - After running setup_project.sh, a compressed script (offline_<repo_name>.sh.gz) and a wrapper script (offline_<repo_name>.sh)     are created in git-shell-script-generator_project. To recreate the repository offline:bash
 
-cd git-shell-script-generator_project
-./offline_<repo_name>.sh
-
-Example:bash
-
-./offline_Reco-AI-Agent.sh
-
-The wrapper script decompresses offline_<repo_name>.sh.gz and recreates the repository in git-shell-script-generator_project/<repo_name>.
-
 ## How It Works
 
-Input Validation:setup_project.sh expects a single argument: a Git repository URL (e.g., https://github.com/victordeman/Reco-AI-Agent).
-The repository name is extracted from the URL (e.g., Reco-AI-Agent).
+1. Input Validation:
+   setup_project.sh expects a single argument: a Git repository URL
+   (e.g., https://github.com/victordeman/Reco-AI-Agent).
+   The repository name is extracted from the URL (e.g., Reco-AI-Agent).
 
-Error Checks:Verifies at least 1GB of free disk space using df -k.
+2. Error Checks:Verifies at least 1GB of free disk space using df -k.
 Ensures write permissions in the current directory using -w.
 Confirms git and gzip are installed using command -v.
 Handles Git authentication errors for private repositories.
 
-Temporary Cloning:Clones the repository to git-shell-script-generator_project/temp_<repo_name> to analyze its content.
+3. Temporary Cloning:Clones the repository to git-shell-script-generator_project/temp_<repo_name> to analyze its content.
 If cloning fails (e.g., due to invalid URL or authentication issues), it provides guidance for private repositories.
 
-Language Detection:Checks for:requirements.txt (Python)
+4. Language Detection:Checks for:requirements.txt (Python)
 package.json (JavaScript/Node.js)
 pom.xml (Java)
 *.sh (Bash)
 
 Reports the detected language or indicates if none is detected.
 
-README Extraction:Extracts the first 10 lines of README.md (if present) as a project description, removing Markdown headers for clarity.
+5. README Extraction:Extracts the first 10 lines of README.md (if present) as a project description, removing Markdown headers for clarity.
 
-Offline Script Generation:Creates offline_<repo_name>.sh.gz in git-shell-script-generator_project.
+6. Offline Script Generation:Creates offline_<repo_name>.sh.gz in git-shell-script-generator_project.
 Embeds the full content of each file:Text files are embedded directly using cat << 'EOC'.
 Binary files are encoded with base64 for accurate replication.
 
 Generates a wrapper script (offline_<repo_name>.sh) that decompresses and executes the compressed script.
 
-Content Validation:Runs the offline script to recreate the repository in git-shell-script-generator_project/<repo_name>.
+7. Content Validation:Runs the offline script to recreate the repository in git-shell-script-generator_project/<repo_name>.
 Uses diff -r --exclude=".git" to compare the original and recreated repositories.
 Reports success or displays differences if validation fails.
 
-Cleanup:Deletes the temporary cloned repository (temp_<repo_name>) to save disk space.
+8. Cleanup:
+   Deletes the temporary cloned repository (temp_<repo_name>) to save disk space.
 
